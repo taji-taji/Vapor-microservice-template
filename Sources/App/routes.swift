@@ -2,13 +2,8 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
-    app.get { req in
-        return "It works!"
+    // You should need to replace "name" variable inside the first route.
+    app.get([.anything, "name", "health"]) { req in
+        return "Healthy!"
     }
-
-    app.get("hello") { req -> String in
-        return "Hello, world!"
-    }
-
-    try app.register(collection: TodoController())
 }
